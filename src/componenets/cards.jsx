@@ -9,23 +9,43 @@ function Cards() {
   const [animeLogo, setAnimeLogo] = useState("");
   const [score, setScore] = useState(0);
   const [clickedCharacters, setClickedCharacters] = useState(new Set());
+  const [congratMessage, setCongratMessage] = useState("");
+  const [showMessage, setShowMessage] = useState(false);
 
   const animeNames = [
     "Scissor Seven",
-    "Boku no Hero Academia 7",
+    "Boku no Hero 7",
+    "Boku no Hero Academia 4",
     "Attack on Titan",
     "Naruto Shippuden",
     "One Piece",
     "Hunter x Hunter",
-    "Nanatsu no Taizai",
     "Kimetsu no Yaiba",
+    'Attack on titan 3',
     "Jujutsu Kaisen",
     "JJBA",
     "Dragon Ball Z",
+    "Blue Lock",
+    "Haikyu!",
   ];
 
-  const [currentAnime, setCurrentAnime] = useState("Kimetsu No Yaiba");
-  const [remainingAnimes, setRemainingAnimes] = useState(animeNames); 
+  const congratMessages = [
+    "Splendid!",
+    "Amazing Job!",
+    "Fantastic!",
+    "Well Done!",
+    "You're Awesome!",
+    "Great Work!",
+    "Superb!",
+    "Outstanding!",
+  ];
+
+  const shuffleArray = (array) => {
+    return array.sort(() => Math.random() - 0.5);
+  };
+
+  const [currentAnime, setCurrentAnime] = useState(animeNames[Math.floor(Math.random() * animeNames.length)]);
+  const [remainingAnimes, setRemainingAnimes] = useState(shuffleArray([...animeNames]));
 
   useEffect(() => {
     const fetchCharacters = async () => {
@@ -82,10 +102,16 @@ function Cards() {
       setClickedCharacters((prev) => new Set(prev).add(characterId));
 
       if (score + 1 === 14) {
+        const randomMessage = congratMessages[Math.floor(Math.random() * congratMessages.length)];
+        setCongratMessage(randomMessage);
+        setShowMessage(true);
+
+        setTimeout(() => setShowMessage(false), 3000);
+
         let updatedAnimes = remainingAnimes.filter(anime => anime !== currentAnime);
 
         if (updatedAnimes.length === 0) {
-          updatedAnimes = [...animeNames];
+          updatedAnimes = shuffleArray([...animeNames]);
         }
 
         const randomAnime = updatedAnimes[Math.floor(Math.random() * updatedAnimes.length)];
@@ -100,7 +126,7 @@ function Cards() {
   };
 
   if (loading) return <p className="loading">Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (error) return <p className="error">{error === 'Network Error' ? 'Too many requests, try again after a minute.' : error}</p>;
 
   return (
     <div>
@@ -119,6 +145,11 @@ function Cards() {
           </div>
         ))}
       </div>
+      {showMessage && (
+        <div className="congrat-message">
+          <p>{congratMessage}</p>
+        </div>
+      )}
     </div>
   );
 }

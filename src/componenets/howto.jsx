@@ -44,7 +44,7 @@ function HowTo() {
           <li>Don't click on the same card twice</li>
           <li>Clicking a card will shuffle all the cards</li>
           <li>You win by reaching a score of 14</li>
-          <li>After winning, the anime will change and you'll start a new round</li>
+          <li>After winning, new anime characters will display and you'll start a new round</li>
           <li className="light">Developed by WadyZen</li>
         </ul>
       </div>

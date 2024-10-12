@@ -7,7 +7,7 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-$font: "Mynerve", cursive;
+$font: "Unkempt", cursive;
 
 img{
     user-select: none;
@@ -20,9 +20,14 @@ body{
     letter-spacing: 1px;
     margin: auto;
     max-width: 1650px;
+    scrollbar-width: 0;
 }
 
-.loading{
+::-webkit-scrollbar{
+    display: none;
+}
+
+.loading, .error{
     font-size: 3rem;
     padding: 50px;
 }
@@ -64,13 +69,14 @@ body{
         justify-content: center;
         align-items: center;
         text-align: center;
-        gap: 10px;
         border-radius: 10px;
         overflow: hidden;
         transition: 100ms;
         h3{
-            padding: 0 5px 5px 5px;
-            text-wrap: wrap;
+            padding: 5px 5px 5px 5px;
+            background: #444;
+            width: 100%;
+            text-overflow: ellipsis;
         }
         &:hover{
             box-shadow: 0 0 50px #ccc;
@@ -81,6 +87,40 @@ body{
         }
     }
 }
+
+.congrat-message{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 3;
+    p{
+        font-size: 3.2rem;
+    }
+}
+
+.congrat-message {
+    animation: fadeInOut 3s ease-in-out;
+  }
+  
+  @keyframes fadeInOut {
+    0% {
+      opacity: 1;
+    }
+
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 
 .howTo{
     position: fixed;
@@ -195,7 +235,6 @@ body{
             justify-content: center;
             align-items: center;
             text-align: center;
-            gap: 10px;
             width: 100%;
             img{
                 border-radius: 10px;

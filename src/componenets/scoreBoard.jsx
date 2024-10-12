@@ -5,7 +5,7 @@ function ScoreBoard({ score, logo }) {
     <div className="score-board">
       {logo && <img src={logo} alt="Anime Logo" className="banner" />}
       <h2 className="score">
-        Score: <span style={score === 0 ? { color: 'red' } : { color: '#51D0EF' }}>{score}</span>/14
+        Score: <span style={score === 0 ? { color: 'red' } : { color: '#0099ff' }}>{score}</span>/14
       </h2>
     </div>
   );

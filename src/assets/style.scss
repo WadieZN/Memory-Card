@@ -1,0 +1,217 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+$font: "Mynerve", cursive;
+
+img{
+    user-select: none;
+}
+
+body{
+    background: #000;
+    color: #fff;
+    font-family: $font;
+    letter-spacing: 1px;
+    margin: auto;
+    max-width: 1650px;
+}
+
+.loading{
+    font-size: 3rem;
+    padding: 50px;
+}
+
+.score-board{
+    padding: 20px 20px 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    .banner{
+        width: 500px;
+    }
+    .score{
+        text-align: center;
+        font-size: 3rem;
+        letter-spacing: 2px;
+    }
+}
+
+.title{
+    font-size: 1.5rem;
+    text-align: start;
+    margin-left: 15px;
+    letter-spacing: 2px;
+}
+
+.cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; 
+    flex-wrap: wrap;
+    padding: 20px 15px;
+    .card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: 100ms;
+        h3{
+            padding: 0 5px 5px 5px;
+            text-wrap: wrap;
+        }
+        &:hover{
+            box-shadow: 0 0 50px #ccc;
+        }
+        img{
+            width: 200px;
+            height: 300px;
+        }
+    }
+}
+
+.howTo{
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    button{
+        cursor: pointer;
+        background: #000;
+        color: #aaa;
+        border: 2px solid #aaa;
+        border-radius: 50%;
+        padding: 5px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+        transition: 100ms;
+        z-index: 2;
+        &:hover{
+            color: #fff;
+            border: 2px solid #fff;
+            transform: scale(1.1);
+        }
+    }
+    .instructions{
+        opacity: 0;
+        transform-origin: right bottom;
+        transform: scale(0);
+        position: fixed;
+        bottom: 50px;
+        right: 75px;
+        background: #000;
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 10px;
+        padding: 15px;
+        width: 300px;
+        z-index: 2;
+        transition: 300ms;
+        &.show{
+            transform: scale(1);
+            opacity: 1;
+        }
+        li{
+            font-family: Arial, Helvetica, sans-serif;
+            list-style: disc;
+            font-size: 1.2rem;
+            margin-left: 20px;
+            &:not(:last-child){
+                padding-bottom: 7px;
+            }
+            &.light{
+                list-style: none;
+                color: #999;
+                text-align: center;
+                margin: 10px 0 0 0;
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body{
+        margin-top: 265px;
+    }
+
+    .title{
+        display: none;
+    }
+
+    .cards .card:hover{
+        box-shadow: none;
+    }
+
+    .howTo button:hover{
+        border: 1px solid #aaa;
+        color: #aaa;
+        transform: none;
+    }
+
+    .score-board{
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 0;
+        flex-direction: column;
+        gap: 0;
+        max-width: 100%;
+        .banner{
+        width: 800px;
+            height: 200px;
+        }
+        h2{
+            background: #000;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .cards{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px; 
+        flex-wrap: wrap;
+        padding: 20px 15px;
+        .card{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+            width: 100%;
+            img{
+                border-radius: 10px;
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    .score-board .score{
+        font-size: 2.5rem;
+    }
+
+    .howTo .instructions{
+        right: 20px;
+        bottom: 70px;
+    }
+    
+}

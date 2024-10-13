@@ -14,7 +14,7 @@ img{
 }
 
 body{
-    background: #000;
+    background: #131314;
     color: #fff;
     font-family: $font;
     letter-spacing: 1px;
@@ -64,6 +64,7 @@ body{
     flex-wrap: wrap;
     padding: 20px 15px;
     .card{
+        cursor: pointer;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -71,7 +72,7 @@ body{
         text-align: center;
         border-radius: 10px;
         overflow: hidden;
-        transition: 100ms;
+        transition: 200ms;
         h3{
             padding: 5px 5px 5px 5px;
             background: #444;
@@ -79,7 +80,8 @@ body{
             text-overflow: ellipsis;
         }
         &:hover{
-            box-shadow: 0 0 50px #ccc;
+            transform: scale(1.1);
+            box-shadow: 0 0 40px #777;
         }
         img{
             width: 200px;
@@ -151,7 +153,8 @@ body{
         position: fixed;
         bottom: 50px;
         right: 75px;
-        background: #000;
+        background: hsla(0, 0%, 0%, 0.8);
+        backdrop-filter: blur(3px);
         color: #fff;
         border: 1px solid #fff;
         border-radius: 10px;
@@ -193,6 +196,7 @@ body{
 
     .cards .card:hover{
         box-shadow: none;
+        transform: none;
     }
 
     .howTo button:hover{

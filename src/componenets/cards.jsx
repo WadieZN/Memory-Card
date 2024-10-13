@@ -20,13 +20,16 @@ function Cards() {
     "Naruto Shippuden",
     "One Piece",
     "Hunter x Hunter",
-    "Kimetsu no Yaiba",
+    'Kimetsu no Yaiba',
     'Attack on titan 3',
-    "Jujutsu Kaisen",
-    "JJBA",
+    'Jujutsu Kaisen',
+    'JJBA',
     "Dragon Ball Z",
     "Blue Lock",
-    "Haikyu!",
+    'Haikyu!',
+    'Cyberpunk Edgerunners',
+    'Vinland Saga',
+    'Overlord',
   ];
 
   const congratMessages = [
@@ -93,7 +96,7 @@ function Cards() {
     fetchCharacters();
   }, [currentAnime]);
 
-  const handleImageClick = (characterId) => {
+  const handleCardClick = (characterId) => {
     if (clickedCharacters.has(characterId)) {
       setScore(0);
       setClickedCharacters(new Set());
@@ -134,11 +137,14 @@ function Cards() {
       <h2 className="title">{currentAnime.toLocaleUpperCase()}</h2>
       <div className="cards">
         {characters.map((character) => (
-          <div key={character.id} className="card">
+          <div
+            key={character.id}
+            className="card"
+            onClick={() => handleCardClick(character.id)}
+          >
             <img
               src={character.image.large}
               alt={character.name.full}
-              onClick={() => handleImageClick(character.id)}
               draggable="false"
             />
             <h3>{character.name.full}</h3>

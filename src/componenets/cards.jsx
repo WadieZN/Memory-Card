@@ -19,6 +19,7 @@ function Cards() {
     "Attack on Titan",
     "Naruto Shippuden",
     "One Piece",
+    'One Piece (Manga)',
     "Hunter x Hunter",
     'Kimetsu no Yaiba',
     'Attack on titan 3',
@@ -30,6 +31,7 @@ function Cards() {
     'Cyberpunk Edgerunners',
     'Vinland Saga',
     'Overlord',
+    'Kuroko no basket 3',
   ];
 
   const congratMessages = [
@@ -121,6 +123,7 @@ function Cards() {
         setCurrentAnime(randomAnime);
         setRemainingAnimes(updatedAnimes);
         setScore(0);
+        setClickedCharacters(new Set());
       }
     }
 

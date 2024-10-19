@@ -1,3 +1,5 @@
-A memory game built by React, SASS, Axios and AniList API. 
+# Memory Cards Game
 
-demo: https://wadyzen-memory-game.netlify.app/
+https://wadyzen-memory-game.netlify.app/
+
+A memory game built with **React**, **SASS**, **Axios** and **AniList API**. 

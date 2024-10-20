@@ -16,8 +16,9 @@ function Cards() {
     "Scissor Seven",
     "Boku no Hero 7",
     "Boku no Hero Academia 4",
+    "Boku no Hero Academia 5",
     "Attack on Titan",
-    "Naruto Shippuden",
+    "Naruto 8",
     "One Piece",
     'One Piece (Manga)',
     "Hunter x Hunter",
@@ -27,7 +28,7 @@ function Cards() {
     'JJBA',
     "Dragon Ball Z",
     "Blue Lock",
-    'Haikyu!',
+    'Haikyu! 3',
     'Cyberpunk Edgerunners',
     'Vinland Saga',
     'Overlord',
@@ -39,10 +40,11 @@ function Cards() {
     "Amazing Job!",
     "Fantastic!",
     "Well Done!",
-    "You're Awesome!",
+    "Awesome!",
     "Great Work!",
     "Superb!",
     "Outstanding!",
+    "You nailed it!",
   ];
 
   const shuffleArray = (array) => {
